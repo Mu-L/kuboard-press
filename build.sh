@@ -10,8 +10,8 @@ docker buildx build --platform linux/amd64 -t $tag:latest .
 
 
 if test $datetime != ""; then
-  # docker push $tag:latest
   docker tag $tag:latest $tag:$datetime
-  docker push $tag:$datetime
-  echo pushded $tag:$datetime
+
+  echo "在宿主机上使用如下指令推送镜像到仓库"
+  echo "skopeo copy --dest-creds cn-east-2@\${SWR_AK}:\${SWR_PW} docker-daemon:$tag:$datetime docker://$tag:$datetime"
 fi
