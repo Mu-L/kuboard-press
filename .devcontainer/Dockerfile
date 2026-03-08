@@ -16,6 +16,9 @@ RUN curl -fsSL https://deb.nodesource.com/setup_22.x -o nodesource_setup.sh \
   && wget -qO- https://get.pnpm.io/install.sh | ENV="$HOME/.bashrc" SHELL="$(which bash)" bash - \
   && useradd -D
 
-RUN wget https://download.docker.com/linux/ubuntu/dists/focal/pool/stable/$(dpkg --print-architecture)/docker-ce-cli_20.10.24~3-0~ubuntu-focal_$(dpkg --print-architecture).deb \
-&& dpkg -i docker-ce-cli_20.10.24~3-0~ubuntu-focal_$(dpkg --print-architecture).deb \
-&& rm docker-ce-cli_20.10.24~3-0~ubuntu-focal_$(dpkg --print-architecture).deb
+RUN wget https://download.docker.com/linux/ubuntu/dists/focal/pool/stable/$(dpkg --print-architecture)/docker-ce-cli_28.1.1-1~ubuntu.20.04~focal_$(dpkg --print-architecture).deb \
+&& wget https://download.docker.com/linux/ubuntu/dists/focal/pool/stable/$(dpkg --print-architecture)/docker-buildx-plugin_0.23.0-1~ubuntu.20.04~focal_$(dpkg --print-architecture).deb \
+&& dpkg -i docker-ce-cli_28.1.1-1~ubuntu.20.04~focal_$(dpkg --print-architecture).deb \
+&& dpkg -i docker-buildx-plugin_0.23.0-1~ubuntu.20.04~focal_$(dpkg --print-architecture).deb \
+&& rm docker-ce-cli_28.1.1-1~ubuntu.20.04~focal_$(dpkg --print-architecture).deb \
+&& rm docker-buildx-plugin_0.23.0-1~ubuntu.20.04~focal_$(dpkg --print-architecture).deb
